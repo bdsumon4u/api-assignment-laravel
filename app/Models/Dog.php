@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Breed extends Model
+class Dog extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function dogs(): HasMany
+    public function breed(): BelongsTo
     {
-        return $this->hasMany(Dog::class);
+        return $this->belongsTo(Breed::class);
     }
 }
